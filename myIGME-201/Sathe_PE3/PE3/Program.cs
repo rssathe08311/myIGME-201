@@ -28,6 +28,9 @@ namespace PE3
 
             //prints the final product to the console
             Console.WriteLine(prod);
+
+
+
         }
     }
 }
