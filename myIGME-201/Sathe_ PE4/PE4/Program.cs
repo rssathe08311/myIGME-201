@@ -31,6 +31,8 @@ namespace PE4
                 s_val1 = Console.ReadLine();
                 s_val2 = Console.ReadLine();
             }
+
+
         }
     }
 }
