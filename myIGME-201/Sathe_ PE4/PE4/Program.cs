@@ -17,10 +17,13 @@ namespace PE4
             int val1 = int.Parse(s_val1);
             int val2 = int.Parse(s_val2);
 
-            if((val1 >10) && (val2 > 10))
+            if (((val1 > 10) || (val2 > 10)) && !((val1 > 10) && (val2 > 10)))
             {
                 //idk have to check what the output should be
-                Console.WriteLine(val1 + " and " + val2);
+                Console.WriteLine("You submitted: " + val1 + " and " + val2);
+            }
+            else if((val1 < 10) && (val2 < 10)){
+                Console.WriteLine("You submitted: " + val1 + " and " + val2);
             }
             else
             {
