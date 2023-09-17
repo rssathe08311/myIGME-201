@@ -49,12 +49,14 @@ namespace PE_7_Mad_Libs
                 ++i;
 
             }
+            //closes text file
             txtInput.Close();
 
-
+            //asks the user if they want to play the game
             Console.WriteLine("Do you want to play Mad Libs?");
             string ans = Console.ReadLine();
             ans = ans.ToLower();
+            //while loop to 
             Boolean play = false;
             while(!play)
             {
@@ -65,7 +67,6 @@ namespace PE_7_Mad_Libs
                     Console.WriteLine("Enter which Mad Lib you would like to play. Enter an integer from 1 to " + (prompts));
                     string tempNum = Console.ReadLine();
                     //make sure that its a valid answer and then set it to userChoice
-
                     Boolean valid = false;
                     while (!valid)
                     {
@@ -89,9 +90,10 @@ namespace PE_7_Mad_Libs
                             valid = true;
                         }
                     }
-
+                    //puts the mad lib that the user chose into a string array
                     string[] words = madLib[userChoice - 1].Split(' ');
 
+                    //allows the user to complete the madLib
                     foreach (string word in words)
                     {
                         if (word[0] == '{')
@@ -107,7 +109,7 @@ namespace PE_7_Mad_Libs
                         }
 
                     }
-
+                    //prints the completed mad lib
                     Console.WriteLine(resultString);
                     play = true;
                 }
