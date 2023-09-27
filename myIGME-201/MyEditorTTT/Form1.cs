@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using System.Threading;
-
 namespace MyEditor
 {
     public partial class Form1 : Form
@@ -34,58 +32,12 @@ namespace MyEditor
             this.mSSansSerifToolStripMenuItem.Click += new EventHandler(MSSansSerifToolStripMenuItem__Click);
             this.timesNewRomanToolStripMenuItem.Click += new EventHandler(TimesNewRomanToolStripMenuItem__Click);
 
-            this.testtoolStripButton.Click += new EventHandler(TestToolStripButton__Click);
-
             this.toolStrip.ItemClicked += new ToolStripItemClickedEventHandler(ToolStrip_ItemClicked);
 
             this.richTextBox.SelectionChanged += new EventHandler(RichTextBox__SelectionChanged);
 
-            this.countdownLabel.Visible = false;
-
-            this.timer.Tick += new EventHandler(Timer__Tick);
-
-
             this.Text = "MyEditor";
 
-        }
-
-        private void Timer__Tick(object sender, EventArgs e)
-        {
-            --this.toolStripProgressBar1.Value;
-
-            if (this.toolStripProgressBar1.Value == 0)
-            {
-                this.timer.Stop();
-
-                string performance = "Congratulations! You typed " + Math.Round(this.richTextBox.TextLength / 30.0, 2) + " letters per second!";
-
-                MessageBox.Show(performance);
-            }
-        }
-
-        private void TestToolStripButton__Click(object sender, EventArgs e)
-        {
-            this.timer.Interval = 500;
-
-            this.toolStripProgressBar1.Value = 60;
-
-            this.countdownLabel.Text = "3";
-            this.countdownLabel.Visible = true;
-            this.richTextBox.Visible = false;
-
-            richTextBox.Clear();
-
-            for (int i = 3; i > 0; --i)
-            {
-                this.countdownLabel.Text = i.ToString();
-                this.Refresh();
-                Thread.Sleep(1000);
-            }
-
-            this.countdownLabel.Visible = false;
-            this.richTextBox.Visible = true;
-
-            this.timer.Start();
         }
 
         private void NewToolStripMenuItem_Click(object sender, EventArgs e)
