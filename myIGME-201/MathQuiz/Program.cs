@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace MathQuiz
 {
 
-    //ADD  THE CORRECT COMMENT HEADERS
+    //program class 
     static class Program
     {
 
-        //ADD THE CORRECT COMMENT HEADERS
+        //main method where the quiz will be written
         static void Main()
         {
             // store user name
@@ -38,11 +38,11 @@ namespace MathQuiz
             // operands and solution
             int val1 = 0;
             int val2 = 0;
-            int nAnswer = 0;
+            double nAnswer = 0;
 
             // string and int for the response
             string sResponse = "";
-            Int32 nResponse = 0;
+            double nResponse = 0;
 
             // play again?  
             string sAgain = "";
@@ -132,7 +132,7 @@ namespace MathQuiz
             for (nCntr = 0; nCntr < nQuestions; ++nCntr)
             {
                 // generate a random number between 0 inclusive and 3 exclusive to get the operation
-                nOp = rand.Next(0, 3);
+                nOp = rand.Next(0, 4);
 
                 val1 = rand.Next(0, nMaxRange) + nMaxRange;
                 val2 = rand.Next(0, nMaxRange);
@@ -158,10 +158,16 @@ namespace MathQuiz
                     sQuestions = $"Question #{nCntr + 1}: {val1} - {val2} => ";
 
                 }
-                else
+                else if (nOp == 2)
                 {
                     nAnswer = val1 * val2;
                     sQuestions = $"Question #{nCntr + 1}: {val1} * {val2} => ";
+                }
+                else
+                {
+                    double divVal = (double)val1 / (double)val2;
+                    nAnswer = Math.Round((double)divVal, 2);
+                    sQuestions = $"Question #{nCntr + 1}: {val1} / {val2} => ";
                 }
 
                 bValid = false;
@@ -174,12 +180,12 @@ namespace MathQuiz
 
                     try
                     {
-                        nResponse = int.Parse(sResponse);
+                        nResponse = Double.Parse(sResponse);
                         bValid = true;
                     }
                     catch
                     {
-                        Console.WriteLine("please enter an integer.");
+                        Console.WriteLine("please enter a number.");
                         bValid = false;
                     }
                 } while (!bValid);
