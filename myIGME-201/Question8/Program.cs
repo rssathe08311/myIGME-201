@@ -33,9 +33,13 @@ namespace Question8
                     //z = 4y3 + 2x2 - 8x + 7
                     z = (4 * Math.Pow(y, 3)) + (2 * Math.Pow(x, 2)) - (8 * x) + 7;
 
-                    ans[xInd, yInd, 0] = x;
-                    ans[xInd, yInd, 1] = y;
-                    ans[xInd, yInd, 2] = z;
+
+                    //using delegate to round values
+                    ans[xInd, yInd, 0] = mathRound(x,1);
+                    ans[xInd, yInd, 1] = mathRound(y,1);
+                    ans[xInd, yInd, 2] = mathRound(z, 3);
+
+                    //Console.WriteLine(ans[xInd, yInd, 2].ToString());
 
                 }
             }
