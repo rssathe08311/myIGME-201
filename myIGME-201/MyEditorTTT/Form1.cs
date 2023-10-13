@@ -12,18 +12,23 @@ namespace MyEditor
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        public Form1(MyEditorParent myEditorParent)
         {
             InitializeComponent();
 
-            this.newToolStripMenuItem.Click += new EventHandler(NewToolStripMenuItem_Click);
-            this.openToolStripMenuItem.Click += new EventHandler(OpenToolStripMenuItem_Click);
-            this.saveToolStripMenuItem.Click += new EventHandler(SaveToolStripMenuItem_Click);
-            this.exitToolStripMenuItem.Click += new EventHandler(ExitToolStripMenuItem_Click);
+            this.MdiParent = myEditorParent;
 
-            this.copyToolStripMenuItem.Click += new EventHandler(CopyToolStripMenuItem_Click);
-            this.cutToolStripMenuItem.Click += new EventHandler(CutToolStripMenuItem_Click);
-            this.pasteToolStripMenuItem.Click += new EventHandler(PasteToolStripMenuItem_Click);
+            //this.newToolStripMenuItem.Click += new EventHandler(NewToolStripMenuItem_Click);
+
+            myEditorParent.openToolStripMenuItem.Click += new EventHandler(OpenToolStripMenuItem_Click);
+            myEditorParent.saveToolStripMenuItem.Click += new EventHandler(SaveToolStripMenuItem_Click);
+            //this.exitToolStripMenuItem.Click += new EventHandler(ExitToolStripMenuItem_Click);
+
+            myEditorParent.copyToolStripMenuItem.Click += new EventHandler(CopyToolStripMenuItem_Click);
+            myEditorParent.cutToolStripMenuItem.Click += new EventHandler(CutToolStripMenuItem_Click);
+            myEditorParent.pasteToolStripMenuItem.Click += new EventHandler(PasteToolStripMenuItem_Click);
+
+            myEditorParent.closeAllToolStripMenuItem.Click += new EventHandler(CloseAllToolStripMenuItem__Click);
 
             this.boldToolStripMenuItem.Click += new EventHandler(BoldToolStripMenuItem__Click);
             this.italicsToolStripMenuItem.Click += new EventHandler(ItalicsToolStripMenuItem__Click);
@@ -38,7 +43,30 @@ namespace MyEditor
 
             this.Text = "MyEditor";
 
+            this.FormClosing += new FormClosingEventHandler(Form1__FormClosing);
+
         }
+
+        private void Form1__FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MyEditorParent myEditorParent = (MyEditorParent)this.MdiParent;
+
+            myEditorParent.openToolStripMenuItem.Click -= new EventHandler(OpenToolStripMenuItem_Click);
+            myEditorParent.saveToolStripMenuItem.Click -= new EventHandler(SaveToolStripMenuItem_Click);
+            //this.exitToolStripMenuItem.Click += new EventHandler(ExitToolStripMenuItem_Click);
+
+            myEditorParent.copyToolStripMenuItem.Click -= new EventHandler(CopyToolStripMenuItem_Click);
+            myEditorParent.cutToolStripMenuItem.Click -= new EventHandler(CutToolStripMenuItem_Click);
+            myEditorParent.pasteToolStripMenuItem.Click -= new EventHandler(PasteToolStripMenuItem_Click);
+
+            myEditorParent.closeAllToolStripMenuItem.Click -= new EventHandler(CloseAllToolStripMenuItem__Click);
+        }
+
+        private void CloseAllToolStripMenuItem__Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
         private void NewToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -116,6 +144,11 @@ namespace MyEditor
 
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(this.MdiParent.ActiveMdiChild != this)
+            {
+                return;
+            }
+
             if(openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 RichTextBoxStreamType richTextBoxStreamType = RichTextBoxStreamType.RichText;
@@ -132,6 +165,11 @@ namespace MyEditor
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (this.MdiParent.ActiveMdiChild != this)
+            {
+                return;
+            }
+
             saveFileDialog.FileName = openFileDialog.FileName;
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -154,16 +192,32 @@ namespace MyEditor
 
         private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (this.MdiParent.ActiveMdiChild != this)
+            {
+                return;
+            }
+
             richTextBox.Copy();
         }
 
         private void CutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            if (this.MdiParent.ActiveMdiChild != this)
+            {
+                return;
+            }
+
             richTextBox.Cut();
         }
 
         private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (this.MdiParent.ActiveMdiChild != this)
+            {
+                return;
+            }
+
             richTextBox.Paste();
         }
 
