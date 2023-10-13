@@ -59,7 +59,7 @@ namespace CourseLib
             }
         }
 
-        //from the PE 12 document
+        //from the PE 12 document 
         public Courses()
         {
             Course thisCourse;
