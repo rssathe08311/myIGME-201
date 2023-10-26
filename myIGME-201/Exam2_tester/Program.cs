@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Exam2_tester
 {
-    internal class Program
+    
+    public class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(2);
         }
     }
 }
