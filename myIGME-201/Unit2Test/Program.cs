@@ -216,7 +216,7 @@ namespace Unit2Test
             PhoneBooth phoneBooth;//creates phoneBooth object
             Tardis tardis; //creates tardis object
             //checks if obj is a phoneInterface
-            if (obj.GetType() == typeof(PhoneInterface))
+            if (obj is PhoneInterface)
             {
                 phone = (PhoneInterface)obj;//casts object to phoneInterface
                 //calls methods
@@ -224,13 +224,13 @@ namespace Unit2Test
                 phone.HangUp();
             }
             //checks if obj is a phoneBooth
-            if (obj.GetType() == typeof(PhoneBooth))
+            if (obj. is PhoneBooth)
             {
                 phoneBooth = (PhoneBooth)obj;
                 phoneBooth.OpenDoor();
             }
             //checks if obj is a Tardis
-            if (obj.GetType() == typeof(PhoneBooth))
+            if (obj is Tardis)
             {
                 tardis = (Tardis)obj;
                 tardis.TimeTravel();
