@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.convRichTextBox = new System.Windows.Forms.RichTextBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.convRichTextBox = new System.Windows.Forms.RichTextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.msgRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.userTextBox = new System.Windows.Forms.TextBox();
-            this.loginButton = new System.Windows.Forms.Button();
-            this.sendButton = new System.Windows.Forms.Button();
-            this.usersButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.usersButton = new System.Windows.Forms.Button();
+            this.sendButton = new System.Windows.Forms.Button();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.userTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -57,15 +57,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Conversation";
             // 
-            // convRichTextBox
-            // 
-            this.convRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.convRichTextBox.Location = new System.Drawing.Point(3, 16);
-            this.convRichTextBox.Name = "convRichTextBox";
-            this.convRichTextBox.Size = new System.Drawing.Size(839, 371);
-            this.convRichTextBox.TabIndex = 0;
-            this.convRichTextBox.Text = "";
-            // 
             // webBrowser1
             // 
             this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -74,6 +65,15 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(250, 368);
             this.webBrowser1.TabIndex = 1;
+            // 
+            // convRichTextBox
+            // 
+            this.convRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.convRichTextBox.Location = new System.Drawing.Point(3, 16);
+            this.convRichTextBox.Name = "convRichTextBox";
+            this.convRichTextBox.Size = new System.Drawing.Size(839, 371);
+            this.convRichTextBox.TabIndex = 0;
+            this.convRichTextBox.Text = "";
             // 
             // splitContainer1
             // 
@@ -105,31 +105,16 @@
             this.msgRichTextBox.Size = new System.Drawing.Size(565, 100);
             this.msgRichTextBox.TabIndex = 0;
             this.msgRichTextBox.Text = "";
+            this.msgRichTextBox.TextChanged += new System.EventHandler(this.msgRichTextBox_TextChanged);
             // 
-            // userTextBox
+            // exitButton
             // 
-            this.userTextBox.Location = new System.Drawing.Point(12, 21);
-            this.userTextBox.Name = "userTextBox";
-            this.userTextBox.Size = new System.Drawing.Size(156, 20);
-            this.userTextBox.TabIndex = 0;
-            // 
-            // loginButton
-            // 
-            this.loginButton.Location = new System.Drawing.Point(189, 21);
-            this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(75, 23);
-            this.loginButton.TabIndex = 1;
-            this.loginButton.Text = "Login";
-            this.loginButton.UseVisualStyleBackColor = true;
-            // 
-            // sendButton
-            // 
-            this.sendButton.Location = new System.Drawing.Point(12, 60);
-            this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(75, 23);
-            this.sendButton.TabIndex = 2;
-            this.sendButton.Text = "Send";
-            this.sendButton.UseVisualStyleBackColor = true;
+            this.exitButton.Location = new System.Drawing.Point(189, 60);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.TabIndex = 4;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
             // 
             // usersButton
             // 
@@ -140,14 +125,30 @@
             this.usersButton.Text = "Users";
             this.usersButton.UseVisualStyleBackColor = true;
             // 
-            // exitButton
+            // sendButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(189, 60);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(75, 23);
-            this.exitButton.TabIndex = 4;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = true;
+            this.sendButton.Location = new System.Drawing.Point(12, 60);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(75, 23);
+            this.sendButton.TabIndex = 2;
+            this.sendButton.Text = "Send";
+            this.sendButton.UseVisualStyleBackColor = true;
+            // 
+            // loginButton
+            // 
+            this.loginButton.Location = new System.Drawing.Point(189, 21);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(75, 23);
+            this.loginButton.TabIndex = 1;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = true;
+            // 
+            // userTextBox
+            // 
+            this.userTextBox.Location = new System.Drawing.Point(12, 21);
+            this.userTextBox.Name = "userTextBox";
+            this.userTextBox.Size = new System.Drawing.Size(156, 20);
+            this.userTextBox.TabIndex = 0;
             // 
             // DyscordForm
             // 
