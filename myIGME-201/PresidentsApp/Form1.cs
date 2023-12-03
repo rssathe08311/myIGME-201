@@ -178,7 +178,7 @@ namespace PresidentsApp
 
             foreach(HtmlElement pageLink in pageLinks)
             {
-                pageLink.SetAttribute("title", "David Schuh for President");
+                pageLink.SetAttribute("title", "Reva Sathe for President");
             }
         }
 
