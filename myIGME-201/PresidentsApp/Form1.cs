@@ -20,6 +20,7 @@ namespace PresidentsApp
         public Presidents()
         {
             InitializeComponent();
+            ControlBox = false;
 
             this.allRadioButton.Checked = true;
             this.exitButton.Enabled = false;
