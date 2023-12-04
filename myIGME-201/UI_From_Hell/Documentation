@@ -1,0 +1,17 @@
+THEME
+	For this question, I decided that the form would be the work of an all-powerful trickster who has decided to make people go through their process to cause chaos 
+		for the sake of it.
+FUNCTION
+	FORM 1 - Start Page
+		When you open the page you will see two buttons, a start button and an exit button. If you click on the exit button it will not allow you to leave and display
+		a message. If you press the start button it will create many images and show the real start button. Clicking this actual start button will then load the main form
+	FORM 2 - Main Form
+		When it loads the only visible thing will be a 'Hello' button that when the user clicks disappears and shows the rest of the form. A textbox with a name prompt and a 
+		checkbox. Once you have entered a name and clicked the checkbox, a message will pop up. There is also a timer that is running and once it runs out the application closes.
+		The first radio button will trap you in a loop of just the start button and the full interface until you click another radio button. The curiosity button will cause
+		a bunch of question marks to appear all over the form. The defeat button will show the user a message and then close the application. The work button will open up form 3
+		a job application form.
+	FORM 3 - Job Application Form
+		This form has a textbox that asks the user to fill out why they should be hired for the position. Then a groupBox with radio buttons that asks if you expect to be paid
+		if you say yes the form laughs at you and exits the application. If you say no it rejects you and closes the application.
+The form can be stopped by clicking the X button in the top right corner. 
